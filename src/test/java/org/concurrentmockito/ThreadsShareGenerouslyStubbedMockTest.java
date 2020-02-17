@@ -17,6 +17,10 @@ public class ThreadsShareGenerouslyStubbedMockTest extends TestBase {
 
     private IMethods mock;
 
+    //The following test tests the performTest() similar to test in ThreadShareAMockTest, but this test
+    //the case where if a mock contains foo, it will create a thread of foo,bar,baz,foo,bar,baz
+    //The function performTest calls the mock.simpleMethod("foo") six times to see if anything will go wrong
+    //such stack overflow or lead to a crash will lead to a throw out exception.
     @Test
     public void shouldAllowVerifyingInThreads() throws Exception {
         for(int i = 0; i < 50; i++) {

@@ -14,6 +14,8 @@ public class ThreadsShareAMockTest extends TestBase {
 
     private IMethods mock;
 
+    //This test calls the performTest() in the class TestBase where a Thread is created, and it just calls
+    //performTest 100 times to see if a thread exists and if there is no thread created. It throw exception.
     @Test
     public void shouldAllowVerifyingInThreads() throws Exception {
         for(int i = 0; i < 100; i++) {
@@ -21,6 +23,7 @@ public class ThreadsShareAMockTest extends TestBase {
         }
     }
 
+    //Testing mock.simpleMethod, creating a thread contains the strings and testing verify if string is the same.
     private void performTest() throws InterruptedException {
         mock = mock(IMethods.class);
         final Thread[] listeners = new Thread[3];

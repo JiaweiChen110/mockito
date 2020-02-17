@@ -11,13 +11,13 @@ buildscript {
 
         //Using buildscript.classpath so that we can resolve shipkit from maven local, during local testing
         classpath 'org.shipkit:shipkit:2.1.6'
-        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.4.6'
+        // classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.4.6'
         // "pitest"("org.pitest:pitest-junit5-plugin:0.8")
     }
 }
 
 plugins {
-    id 'info.solidsoft.pitest' version '1.4.6'
+    // id 'info.solidsoft.pitest' version '1.4.6'
     id 'com.gradle.build-scan' version '2.2.1'
     id "com.diffplug.gradle.spotless" version "3.24.3"
     id 'eclipse'

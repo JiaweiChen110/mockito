@@ -15,8 +15,11 @@ import org.mockitoutil.TestBase;
 //this test exposes the problem most of the time
 public class ThreadVerifiesContinuouslyInteractingMockTest extends TestBase {
 
+    //Mock object, testing for depencies for the class IMethods
     @Mock private IMethods mock;
 
+    //Testing the mock object to see if having more than 100 threads would crush the program or not.
+    //If the running time exeed or can not handle at most 100 threads, throw exception.
     @Test
     public void shouldAllowVerifyingInThreads() throws Exception {
         for(int i = 0; i < 100; i++) {

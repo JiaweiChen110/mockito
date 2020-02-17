@@ -12,7 +12,8 @@ import org.mockito.InOrder;
 import org.mockitoutil.TestBase;
 
 public class VerificationInOrderFromMultipleThreadsTest extends TestBase {
-
+    //Testing for multiple threads, check the first thread is created and ended before the second thread is
+    //created and ended after. Else throw exception if no thread is created.
     @Test
     public void shouldVerifyInOrderWhenMultipleThreadsInteractWithMock() throws Exception {
         final Foo testInf = mock(Foo.class);

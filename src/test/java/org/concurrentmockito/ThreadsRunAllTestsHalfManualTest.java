@@ -65,7 +65,7 @@ public class ThreadsRunAllTestsHalfManualTest extends TestBase {
     private static class AllTestsRunner extends Thread {
 
         private Set<Class<?>> failed = new HashSet<Class<?>>();
-
+        //This part is where all the tests accumulated for the testing.
         public void run() {
             Result result = JUnitCore.runClasses(
                     EqualsTest.class,
