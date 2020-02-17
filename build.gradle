@@ -4,24 +4,39 @@ buildscript {
         jcenter()
         maven { url "https://plugins.gradle.org/m2/" }
     }
-
+    // configurations.maybeCreate("pitest")
     dependencies {
         classpath 'gradle.plugin.nl.javadude.gradle.plugins:license-gradle-plugin:0.14.0'
         classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.6'
 
         //Using buildscript.classpath so that we can resolve shipkit from maven local, during local testing
         classpath 'org.shipkit:shipkit:2.1.6'
+        classpath 'info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.4.6'
+        // "pitest"("org.pitest:pitest-junit5-plugin:0.8")
     }
 }
 
 plugins {
+    id 'info.solidsoft.pitest' version '1.4.6'
     id 'com.gradle.build-scan' version '2.2.1'
     id "com.diffplug.gradle.spotless" version "3.24.3"
     id 'eclipse'
 }
-
+// apply plugin: 'info.solidsoft.pitest'
 description = 'Mockito mock objects library core API and implementation'
+// pitest {
+//     testPlugin = 'junit5'
+// }
 
+// apply plugin: "pitest"
+
+// pitest{
+    // targetClasses = ['org.mockito.codegen*']
+//     pitestVersion = '1.4.3'
+//     threads = 4
+//     outputFormats = ['XML', 'HTML']
+//     timestampedReports = false
+// }
 apply plugin: 'base'
 archivesBaseName = "mockito-core"
 
@@ -79,7 +94,7 @@ dependencies {
 
     compileOnly libraries.junit4, libraries.hamcrest, libraries.opentest4j
     compile libraries.objenesis
-
+    
     testCompile libraries.asm
 
     testCompile libraries.assertj
@@ -123,7 +138,15 @@ subprojects {
 			name = rootProject.name + '-' + project.name
 		}
 	}
+    // apply plugin: 'info.solidsoft.pitest'   //'pitest' for plugin versions <1.1.0
 
+    // pitest {
+    //     threads = 4
+
+    //     if (project.name in ['module-without-any-test']) {
+    //         failWhenNoMutations = false
+    //     }
+    // }
     afterEvaluate {
         def lib = publishing.publications.javaLibrary
         if(lib && !lib.artifactId.startsWith("mockito-")) {
