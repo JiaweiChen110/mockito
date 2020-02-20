@@ -21,6 +21,7 @@ public class InOrderImplTest extends TestBase {
 
     @Mock IMethods mock;
 
+    //Test for inOrder mocking
     @Test
     public void shouldMarkVerifiedInOrder() throws Exception {
         //given

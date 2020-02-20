@@ -16,6 +16,7 @@ public class MockitoAssertionErrorTest extends TestBase {
         throw new MockitoAssertionError("boom");
     }
 
+    //Test for error exception
     @Test
     public void shouldKeepUnfilteredStackTrace() {
         try {
@@ -26,6 +27,7 @@ public class MockitoAssertionErrorTest extends TestBase {
         }
     }
 
+    //Test for display message if it display original message/new message
     @Test
     public void should_prepend_message_to_original() {
         MockitoAssertionError original = new MockitoAssertionError("original message");

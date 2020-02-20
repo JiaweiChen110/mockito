@@ -13,6 +13,7 @@ public class StackTraceCleanerTest {
 
     private DefaultStackTraceCleaner cleaner= new DefaultStackTraceCleaner();
 
+    //Test for package to test if the package is described as accepted or rejected.
     @Test
     public void allow_or_disallow_mockito_mockito_objects_in_stacktrace() throws Exception {
         assertAcceptedInStackTrace("my.custom.Type");

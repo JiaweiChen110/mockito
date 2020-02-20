@@ -34,13 +34,14 @@ public class AllInvocationsFinderTest extends TestBase {
         mockTwo = mock(IMethods.class);
     }
 
+    //Test for multiple threads if both mocks are empty.
     @Test
     public void no_interactions() throws Exception {
         //expect
         assertTrue(find(asList(mockOne, mockTwo)).isEmpty());
         assertTrue(findStubbings(asList(mockOne, mockTwo)).isEmpty());
     }
-
+    //Test for multi-threads if it process inOrder and end in the same order.
     @Test
     public void provides_invocations_in_order() throws Exception {
         //given
@@ -58,6 +59,7 @@ public class AllInvocationsFinderTest extends TestBase {
         assertArgumentEquals(300, invocations.get(2));
     }
 
+    //Test for the same mock which process again
     @Test
     public void deduplicates_interactions_from_the_same_mock() throws Exception {
         //given
@@ -70,6 +72,7 @@ public class AllInvocationsFinderTest extends TestBase {
         assertEquals(1, invocations.size());
     }
 
+    //Test on mocks if it returns 100, 200 ,300 after calling the method.
     @Test
     public void provides_stubbings_in_order() throws Exception {
         //given

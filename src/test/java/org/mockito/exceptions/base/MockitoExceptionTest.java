@@ -16,6 +16,7 @@ public class MockitoExceptionTest extends TestBase {
         throw new MockitoException("boom");
     }
 
+    //Test err if it display throwIt string
     @Test
     public void shouldKeepUnfilteredStackTrace() {
         try {
