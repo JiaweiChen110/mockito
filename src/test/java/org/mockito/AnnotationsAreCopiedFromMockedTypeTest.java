@@ -22,6 +22,7 @@ import org.junit.Test;
 
 public class AnnotationsAreCopiedFromMockedTypeTest {
 
+    //Custom testing on default values in mocking objects.
     @Test
     public void mock_should_have_annotations_copied_from_mocked_type_at_class_level() {
         AnnotationWithDefaultValue onClassDefaultValue = mock(OnClass.class).getClass().getAnnotation(AnnotationWithDefaultValue.class);
