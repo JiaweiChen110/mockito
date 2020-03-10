@@ -21,6 +21,11 @@ plugins {
     id 'com.gradle.build-scan' version '2.2.1'
     id "com.diffplug.gradle.spotless" version "3.24.3"
     id 'eclipse'
+
+    // id 'java-library'
+    // Use jacoco
+    id 'jacoco'
+    // id 'info.solidsoft.pitest' version '1.4.6'
 }
 // apply plugin: 'info.solidsoft.pitest'
 description = 'Mockito mock objects library core API and implementation'

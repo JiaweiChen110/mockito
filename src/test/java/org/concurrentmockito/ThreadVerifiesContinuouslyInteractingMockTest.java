@@ -27,6 +27,8 @@ public class ThreadVerifiesContinuouslyInteractingMockTest extends TestBase {
         }
     }
 
+    //Here is the test function, this test to see if two thread process concurrently, and join at the end of the process.
+    //It throws exception if neither process never ends.
     private void performTest() throws InterruptedException {
         mock.simpleMethod();
         final Thread[] listeners = new Thread[2];
