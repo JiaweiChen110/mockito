@@ -23,6 +23,8 @@ import org.junit.Test;
 public class AnnotationsAreCopiedFromMockedTypeTest {
 
     //Custom testing on default values in mocking objects.
+    //Test the class customValue class, where its value, default setting are changed. Assertion to check if the value of
+    //the customValue class changed to "yay", pass if value is the same else fail
     @Test
     public void mock_should_have_annotations_copied_from_mocked_type_at_class_level() {
         AnnotationWithDefaultValue onClassDefaultValue = mock(OnClass.class).getClass().getAnnotation(AnnotationWithDefaultValue.class);
@@ -34,6 +36,8 @@ public class AnnotationsAreCopiedFromMockedTypeTest {
         Assertions.assertThat(onClassCustomValue.value()).isEqualTo("yay");
     }
 
+    //This test test for the same functionality but this time it changed the method of the class, where its method output is
+    //different, and assert if the method.value is equal to "yay"
     @Test
     public void mock_should_have_annotations_copied_from_mocked_type_on_methods() {
         AnnotationWithDefaultValue onClassDefaultValue = method("method", mock(OnMethod.class)).getAnnotation(AnnotationWithDefaultValue.class);
@@ -43,6 +47,7 @@ public class AnnotationsAreCopiedFromMockedTypeTest {
         Assertions.assertThat(onClassCustomValue.value()).isEqualTo("yay");
     }
 
+    //This tests for the type of the class, assertion to check if the changed is made or not.
     @Test
     public void mock_should_have_annotations_copied_from_mocked_type_on_method_parameters() {
         AnnotationWithDefaultValue onClassDefaultValue = firstParamOf(method("method", mock(OnMethod.class))).getAnnotation(AnnotationWithDefaultValue.class);

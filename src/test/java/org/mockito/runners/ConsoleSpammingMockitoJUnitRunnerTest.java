@@ -32,7 +32,8 @@ public class ConsoleSpammingMockitoJUnitRunnerTest extends TestBase {
     }
 
     //TODO add sensible tests
-
+    //Test for description, assertion to check if the description, string is the same as expectedDescription when calling
+    //the method createSuiteDescription, which return a class Description with variable string. Pass if the string is correct.
     @Test
     public void shouldDelegateToGetDescription() throws Exception {
         //given

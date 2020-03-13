@@ -26,6 +26,8 @@ public class TimeoutTest extends TestBase {
 
     private final MockitoAssertionError error = new MockitoAssertionError("");
 
+    //This test takes in input of 1 is true, mode is the default class setting of mockito, and timer is the time class.
+    //When timer isCounting is done and return true, then confirm the data is still the same, didnt change which is assertion.
     @Test
     public void should_pass_when_verification_passes() {
         Timeout t = new Timeout(1, mode, timer);
@@ -39,7 +41,8 @@ public class TimeoutTest extends TestBase {
         inOrder.verify(timer).start();
         inOrder.verify(timer).isCounting();
     }
-
+    //This test tests for fail verification, same function as the verification above, but this one
+    //verification fails, because it returns false, and assertion data.
     @Test
     public void should_fail_because_verification_fails() {
         Timeout t = new Timeout(1, mode, timer);
@@ -58,6 +61,8 @@ public class TimeoutTest extends TestBase {
         verify(timer, times(4)).isCounting();
     }
 
+    //This test tests the same function ability, but this one ignore the first fails verification where it does nothing
+    //about the false boolean. assertion the same on data.
     @Test
     public void should_pass_even_if_first_verification_fails() {
         Timeout t = new Timeout(1, mode, timer);
@@ -72,6 +77,8 @@ public class TimeoutTest extends TestBase {
         verify(timer, times(3)).isCounting();
     }
 
+    //This test tests the same functionality, but this one verify the number of true in the verification method,
+    //where 5 is the input, and there are total of 5 true in the return statement, where this test should pass.
     @Test
     public void should_try_to_verify_correct_number_of_times() {
         Timeout t = new Timeout(10, mode, timer);
